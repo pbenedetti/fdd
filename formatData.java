@@ -35,9 +35,10 @@ public class formatData {
     
     static String stopWords="";
 
+    //create String stopWords
     public static void formatData() throws IOException{
 
-		BufferedReader BR_StopWords = null;
+	BufferedReader BR_StopWords = null;
         FileReader FR_StopWords = null;
         FR_StopWords = new FileReader(STOPWORDS);
         BR_StopWords = new BufferedReader(FR_StopWords);
@@ -53,6 +54,8 @@ public class formatData {
      	}
     }
     
+	
+    //Read file training and create file brutt.arff 
     public static void writeBrut() throws IOException{
     	
         BufferedReader BR_DataTraining = null;
@@ -103,6 +106,7 @@ public class formatData {
        
     }
     
+    //check if the word is a stop word
     public static Boolean checkS(String word){
         StringTokenizer stop = new StringTokenizer(stopWords);
         
@@ -118,8 +122,8 @@ public class formatData {
 
     }
     
+    //read each word in the document string
     public static String checkWord(String currentDoc) throws IOException{
-    	 
     	
         StringTokenizer doc = new StringTokenizer(currentDoc);
         String W;
@@ -137,6 +141,7 @@ public class formatData {
         return newDoc;
     }
     
+    //Read file training and create file noStopW.arff 
     public static void writeNoStopW() throws IOException{
     	BufferedReader BR_DataTraining = null;
         FileReader FR_DataTraining = null;
@@ -198,7 +203,9 @@ public class formatData {
         FR_ClassTraining.close();
         
     }
-    
+	
+	
+    //Read file training and create file lemma.arff 
     public static void writeLemma() throws IOException{
     	
     	BufferedReader BR_DataTraining = null;
@@ -274,7 +281,8 @@ public class formatData {
         FR_ClassTraining.close();
         BR_ClassTraining.close();
     }
-    
+	
+    //Read file training and create file morfo.arff 
     public static void writeMorfo() throws IOException{
     	BufferedReader BR_DataTraining = null;
         FileReader FR_DataTraining = null;
